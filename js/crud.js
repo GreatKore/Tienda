@@ -30,3 +30,16 @@ $(document).ready(function()
 		}
 	});
 });
+
+function borrarregistro(id){
+    $('#idmarca_delete').val(id);
+}
+
+function cargarid(datos){
+
+    datosmarca = datos.split("||");
+
+    $('#e_idmarca').val(datosmarca[0]);
+    $('#e_marca').val(datosmarca[1]);
+    
+}

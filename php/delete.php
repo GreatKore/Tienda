@@ -3,11 +3,11 @@
 <?php
     require_once '../bd/conexion.php';
     $success  = "";
-    if(isset($_POST['idmarca_delete']))
+    if(isset($_POST['delete_marca']))
     {	 
-        $id  = $_POST['idmarca_delete'];
+        $id  = $_POST['txtmarca_delete'];
         
-        $sql = "DELETE FROM `marca` WHERE `marca`.`id_marca` = $id";
+        $sql =  "delete from marca where id_marca = $id";
         if (mysqli_query($conex, $sql))
         {
             $success    =   "Marca Eliminada";
@@ -18,6 +18,7 @@
         }
         mysqli_close($conex);
 
+        
         header("Location: principal.php");
 
     }

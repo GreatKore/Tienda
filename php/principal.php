@@ -55,8 +55,10 @@
                 </thead>
                 <tbody>
 				<?php
-                while($row = mysqli_fetch_array($result))
-                {
+                while($row = mysqli_fetch_array($result)){
+
+					$idmarca =$row["id_marca"];
+                    $datos = $row["id_marca"]."||".$row["descripcion_marca"];
                 ?>
 					<tr>
 						<td>
@@ -65,23 +67,24 @@
 								<label for="checkbox1"></label>
 							</span>
 						</td>
-						<td><?php echo $row["id_marca"]; ?></td>
+						<td><?php echo $row['id_marca']; ?></td>
 						<td><?php echo $row["descripcion_marca"]; ?></td>
 						<td>
-							<a href="#editEmployeeModal?<?php echo $row['id_marca']; ?>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal" id= "delete_modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+							<a data-target="#editEmployeeModal" class="edit" data-toggle="modal" onclick="cargarid('<?php echo $datos; ?>')"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+
+							<a data-target="#deleteEmployeeModal" class="delete" data-toggle="modal" onclick="borrarregistro('<?php echo $idmarca; ?>')"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
 						</td>
 					</tr>
                 <?php 
                     } 
                 ?>
-
-
                 </tbody>
             </table>
 
         </div>
     </div>
+
+
 	<!-- Agregar Modal HTML -->
 	<div id="addEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
@@ -111,32 +114,24 @@
 	<div id="editEmployeeModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
+				<form method="post" action="edit.php">
 					<div class="modal-header">						
-						<h4 class="modal-title">Edit Employee</h4>
+						<h4 class="modal-title">Editar Marca</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">					
+					<div class="modal-body">	
+
+						<input type="hidden" name="etxt_idmarca" id="e_idmarca">
+
 						<div class="form-group">
-							<label>Name</label>
-							<input type="text" class="form-control" required>
+							<label>Decripcion</label>
+							<input type="text" name="etxt_marca" id="e_marca"  class="form-control" required>
 						</div>
-						<div class="form-group">
-							<label>Email</label>
-							<input type="email" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label>Address</label>
-							<textarea class="form-control" required></textarea>
-						</div>
-						<div class="form-group">
-							<label>Phone</label>
-							<input type="text" class="form-control" required>
-						</div>					
+
 					</div>
 					<div class="modal-footer">
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-						<input type="submit" class="btn btn-info" value="Save" name="delete">
+						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="submit" class="btn btn-info" value="Actualizar" name="delete_marca">
 					</div>
 				</form>
 			</div>
@@ -150,10 +145,6 @@
 			<div class="modal-content">
 				<form method="post" action="delete.php">
 
-					<input type="hidden" name="idmarca_delete" value="
-					<?php $_GET[""] ?>
-					">
-
 					<div class="modal-header">						
 						<h4 class="modal-title">Eliminar Marca</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -162,6 +153,9 @@
 						<p>Esta seguro que desea eliminar esta Marca?</p>
 						<p class="text-warning"><small>Esta accion no sera reversible.</small></p>
 					</div>
+
+					<input type="hidden" id="idmarca_delete" name="txtmarca_delete" value="">
+
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
 						<input type="submit" class="btn btn-danger" value="Eliminar" name="delete_marca">
@@ -170,6 +164,8 @@
 			</div>
 		</div>
 	</div>
+
+
 
 	<script>
         $(document).ready(function()
