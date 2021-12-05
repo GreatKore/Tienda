@@ -11,19 +11,19 @@
         <div class="right"></div>
       </div>
       <li class="nav-item active">
-        <a class="nav-link" href="javascript:void(0);"><i class="fas fa-home"></i>Principal</a>
+        <a class="nav-link" href="javascript:void(0);"><i class="fas fa-home"></i>Producto</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+        <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Categoria</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+        <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Marca</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+        <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Usuarios</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+        <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Pedidos</a>
       </li>
     </ul>
     
