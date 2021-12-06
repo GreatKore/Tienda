@@ -319,7 +319,7 @@ include("bd/conexion.php");
 													</div>
 												</div>
 												<div class="add-to-cart">
-													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+													<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Carrito</button>
 												</div>
 											</div>
 
@@ -409,13 +409,11 @@ include("bd/conexion.php");
 													<i class="fa fa-star"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista Previa</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Carrito</button>
 											</div>
 										</div>
 
@@ -449,185 +447,140 @@ include("bd/conexion.php");
 				<div class="row">
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Tecnologia</h4>
 							<div class="section-nav">
 								<div id="slick-nav-3" class="products-slick-nav"></div>
 							</div>
 						</div>
 
 						<div class="products-widget-slick" data-nav="#slick-nav-3">
+							
+						<?php
+
+							$sqlproductotec = "SELECT * FROM producto WHERE id_categoria = 3 ";
+							$productotec = $conex->query($sqlproductotec);
+						?>
+
 							<div>
 								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product07.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product08.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
+								
+								<?php			
+									for($i = 0; $i<3; $i++){
+										$arrayproductotec = mysqli_fetch_array($productotec)
+								?>
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product09.png" alt="">
+									<div class="product-widget">
+										<div class="product-img">
+											<img src="data:image/png;base64, <?php echo base64_encode($arrayproductotec['img']); ?>" alt="">
+										</div>
+										<div class="product-body">
+											<p class="product-category"></p>
+											<h3 class="product-name"><a href="#"><?php echo $arrayproductotec["nombre_producto"]; ?></a></h3>
+											<h4 class="product-price"><?php echo "S/ ".$arrayproductotec["precio"]; ?><del class="product-old-price"></del></h4>
+										</div>
 									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+
+								<?php 
+									} 
+								?>
+								<!-- /product widget -->
+	
 							</div>
 
 							<div>
 								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product01.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product02.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
+								
+								<?php			
+									for($i = 0; $i<3; $i++){
+										$arrayproductotec = mysqli_fetch_array($productotec)
+								?>
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product03.png" alt="">
+									<div class="product-widget">
+										<div class="product-img">
+											<img src="data:image/png;base64, <?php echo base64_encode($arrayproductotec['img']); ?>" alt="">
+										</div>
+										<div class="product-body">
+											<p class="product-category"></p>
+											<h3 class="product-name"><a href="#"><?php echo $arrayproductotec["nombre_producto"]; ?></a></h3>
+											<h4 class="product-price"><?php echo "S/ ".$arrayproductotec["precio"]; ?><del class="product-old-price"></del></h4>
+										</div>
 									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+
+								<?php 
+									} 
+								?>
+								<!-- /product widget -->
+	
 							</div>
+
 						</div>
 					</div>
 
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Hogar</h4>
 							<div class="section-nav">
 								<div id="slick-nav-4" class="products-slick-nav"></div>
 							</div>
 						</div>
 
 						<div class="products-widget-slick" data-nav="#slick-nav-4">
+
+						<?php
+
+							$sqlproductohogar = "SELECT * FROM producto WHERE id_categoria = 4 ";
+							$productohogar = $conex->query($sqlproductohogar);
+						?>
 							<div>
+								<?php			
+									for($i = 0; $i<3; $i++){
+										$arrayproductohogar = mysqli_fetch_array($productohogar)
+								?>
+							
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product04.png" alt="">
+										<img src="data:image/png;base64, <?php echo base64_encode($arrayproductohogar['img']); ?>" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<p class="product-category"></p>
+										<h3 class="product-name"><a href="#"><?php echo $arrayproductohogar["nombre_producto"]; ?></a></h3>
+										<h4 class="product-price"><?php echo "S/ ".$arrayproductohogar["precio"]; ?><del class="product-old-price"></del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product05.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product06.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
+								<?php 
+									} 
+								?>
 								<!-- product widget -->
 							</div>
-
 							<div>
+								<?php			
+									for($i = 0; $i<3; $i++){
+										$arrayproductohogar = mysqli_fetch_array($productohogar)
+								?>
+							
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="./img/product07.png" alt="">
+										<img src="data:image/png;base64, <?php echo base64_encode($arrayproductohogar['img']); ?>" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<p class="product-category"></p>
+										<h3 class="product-name"><a href="#"><?php echo $arrayproductohogar["nombre_producto"]; ?></a></h3>
+										<h4 class="product-price"><?php echo "S/ ".$arrayproductohogar["precio"]; ?><del class="product-old-price"></del></h4>
 									</div>
 								</div>
 								<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product08.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product09.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
+								<?php 
+									} 
+								?>
 								<!-- product widget -->
 							</div>
 						</div>
@@ -637,93 +590,68 @@ include("bd/conexion.php");
 
 					<div class="col-md-4 col-xs-6">
 						<div class="section-title">
-							<h4 class="title">Top selling</h4>
+							<h4 class="title">Herramientas</h4>
 							<div class="section-nav">
 								<div id="slick-nav-5" class="products-slick-nav"></div>
 							</div>
 						</div>
 
 						<div class="products-widget-slick" data-nav="#slick-nav-5">
+
+						<?php
+
+							$sqlproductoHerra = "SELECT * FROM producto WHERE id_categoria = 5 ";
+							$productoHerra = $conex->query($sqlproductoHerra);
+						?>
+
 							<div>
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product01.png" alt="">
+								<?php			
+									for($i = 0; $i<3; $i++){
+										$arrayproductoHerra = mysqli_fetch_array($productoHerra)
+								?>
+									<!-- product widget -->
+									<div class="product-widget">
+										<div class="product-img">
+											<img src="data:image/png;base64, <?php echo base64_encode($arrayproductoHerra['img']); ?>" alt="">
+										</div>
+										<div class="product-body">
+											<p class="product-category"></p>
+											<h3 class="product-name"><a href="#"><?php echo $arrayproductoHerra["nombre_producto"]; ?></a></h3>
+											<h4 class="product-price"><?php echo "S/ ".$arrayproductoHerra["precio"]; ?><del class="product-old-price"></del></h4>
+										</div>
 									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
+									<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product02.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
+								<?php 
+									} 
+								?>
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product03.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+							
 							</div>
 
 							<div>
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product04.png" alt="">
+								<?php			
+									for($i = 0; $i<3; $i++){
+										$arrayproductoHerra = mysqli_fetch_array($productoHerra)
+								?>
+									<!-- product widget -->
+									<div class="product-widget">
+										<div class="product-img">
+											<img src="data:image/png;base64, <?php echo base64_encode($arrayproductoHerra['img']); ?>" alt="">
+										</div>
+										<div class="product-body">
+											<p class="product-category"></p>
+											<h3 class="product-name"><a href="#"><?php echo $arrayproductoHerra["nombre_producto"]; ?></a></h3>
+											<h4 class="product-price"><?php echo "S/ ".$arrayproductoHerra["precio"]; ?><del class="product-old-price"></del></h4>
+										</div>
 									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
+									<!-- /product widget -->
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product05.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
+								<?php 
+									} 
+								?>
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="./img/product06.png" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+							
 							</div>
 						</div>
 					</div>
@@ -743,10 +671,10 @@ include("bd/conexion.php");
 				<div class="row">
 					<div class="col-md-12">
 						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
+							<p>Enterate de las <strong>OFERTAS</strong> antes que que los demas</p>
 							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+								<input class="input" type="email" placeholder="Ingresa tu correo">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribirme</button>
 							</form>
 							<ul class="newsletter-follow">
 								<li>
@@ -771,101 +699,9 @@ include("bd/conexion.php");
 		</div>
 		<!-- /NEWSLETTER -->
 
-		<!-- FOOTER -->
-		<footer id="footer">
-			<!-- top footer -->
-			<div class="section">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Sobre Nosotros</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Categorias</h3>
-								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="clearfix visible-xs"></div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Informacion</h3>
-								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Servicios</h3>
-								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /top footer -->
-
-			<!-- bottom footer -->
-			<div id="bottom-footer" class="section">
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-							<span class="copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todo los Derechos Reservados | <i class="fa fa-heart-o" aria-hidden="true"></i>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</span>
-						</div>
-					</div>
-						<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /bottom footer -->
-		</footer>
-		<!-- /FOOTER -->
+	<?php
+		include_once 'library/footer.php';
+	?>
 
 		<!-- jQuery Plugins -->
 		<script src="js/jquery.min.js"></script>
