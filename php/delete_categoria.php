@@ -1,18 +1,15 @@
 
 
 <?php
-
     require_once '../bd/conexion.php';
     $success  = "";
-    if(isset($_POST['add_marca']))
+    if(isset($_POST['delete_categoria']))
     {	 
-        $name  = $_POST['txt_name'];
-        
-        $sql = "INSERT INTO marca (descripcion_marca)
-        VALUES ('$name')";
+        $id  = $_POST['txtcategoria_delete'];
+        $sql =  "delete from categoria where id_categoria = $id ";
         if (mysqli_query($conex, $sql))
         {
-            $success    =   "Nueva Marca añadida!";
+            $success    =   "Categoria Eliminada";
         }
         else
         {
@@ -20,8 +17,6 @@
         }
         mysqli_close($conex);
 
-        header("Location: principal.php");
+        header("Location: categoria.php");
     }
-
-
 ?>

@@ -1,18 +1,16 @@
 
 
 <?php
-
     require_once '../bd/conexion.php';
     $success  = "";
-    if(isset($_POST['add_marca']))
+    if(isset($_POST['delete_usuario']))
     {	 
-        $name  = $_POST['txt_name'];
-        
-        $sql = "INSERT INTO marca (descripcion_marca)
-        VALUES ('$name')";
+        $id  = $_POST['txtusuario_delete'];
+
+        $sql =  "delete from usuario where id_user = $id";
         if (mysqli_query($conex, $sql))
         {
-            $success    =   "Nueva Marca añadida!";
+            $success    =   "Usuario Eliminado";
         }
         else
         {
@@ -20,8 +18,6 @@
         }
         mysqli_close($conex);
 
-        header("Location: principal.php");
+        header("Location: usuarios.php");
     }
-
-
 ?>

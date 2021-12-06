@@ -11,7 +11,7 @@
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> 0.00</a></li>
-						<li><a href="login.php"><i class="fa fa-user-o"></i> <?php echo $cadena; ?></a></li>
+						<li><a href="cerrarsesion.php"><i class="fa fa-user-o"></i> <?php echo $cadena; ?></a></li>
 					</ul>
 				</div>
 			</div>

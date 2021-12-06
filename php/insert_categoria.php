@@ -1,18 +1,17 @@
 
-
 <?php
-
     require_once '../bd/conexion.php';
     $success  = "";
-    if(isset($_POST['add_marca']))
+    if(isset($_POST['add_categoria']))
     {	 
         $name  = $_POST['txt_name'];
         
-        $sql = "INSERT INTO marca (descripcion_marca)
+        $sql = "INSERT INTO categoria (descripcion_categoria)
         VALUES ('$name')";
+    
         if (mysqli_query($conex, $sql))
         {
-            $success    =   "Nueva Marca añadida!";
+            $success    =   "Nueva Categoria añadida!";
         }
         else
         {
@@ -20,8 +19,6 @@
         }
         mysqli_close($conex);
 
-        header("Location: principal.php");
+        header("Location: categoria.php");
     }
-
-
 ?>
