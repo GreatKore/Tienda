@@ -1,9 +1,17 @@
 
 <?php 
 
-require("../bd/conexion.php");
+	require("../bd/conexion.php");
 
-/*$_SESSION["usuario"]*/
+	include_once 'auth.php';
+
+	$codigo =  $_SESSION["codigo"];
+	$consulta = "select * from persona where cod_persona=$codigo";
+	$ejecutar = $conex->query($consulta);
+	$array = mysqli_fetch_array($ejecutar);
+
+
+	$cadena = trim(strtoupper($array["nombre_persona"]." ".$array["apellidos"]));
 
 ?>
 

@@ -3,11 +3,10 @@
 
 session_start();
 
-if ($_SESSION["auth"] == "1" ) {
+if ($_SESSION["auth"] != "1" ) {
 		
-	/* header('location: ../index.php');
-	exit(); */
-	echo "Funciona";
+	header('location: ../index.php');
+	exit();
 }
 
 

@@ -7,7 +7,9 @@
 ?>
 
 <?php 
-    require_once '../bd/conexion.php';
+   require("../bd/conexion.php");
+   include_once 'auth.php';
+
  
 ?>
 
