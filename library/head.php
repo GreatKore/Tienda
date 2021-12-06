@@ -13,8 +13,8 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/crud.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
     <title>Sistema de Ventas</title>
 </head>

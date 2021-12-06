@@ -1,16 +1,19 @@
 
-<?php 
 
-include("bd/conexion.php");
-
-
-
-/*$_SESSION["usuario"]*/
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
+
+<?php 
+
+include("../bd/conexion.php");
+
+ 
+/* $user =  $_SESSION["codigo"]; */
+
+echo $user;
+
+?>
 	<head>
 		
 		<!-- Google font -->
@@ -29,12 +32,12 @@ include("bd/conexion.php");
 
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"/>
 
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="../css/main.css">
         <!-- Slick -->
-		<link type="text/css" rel="stylesheet" href="css/slick.css"/>
-		<link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+		<link type="text/css" rel="stylesheet" href="../css/slick.css"/>
+		<link type="text/css" rel="stylesheet" href="../css/slick-theme.css"/>
         <title>Sistema de Ventas</title>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -45,11 +48,6 @@ include("bd/conexion.php");
 		<![endif]-->
 
     </head>
-
-	<?php 
-    require_once 'bd/conexion.php';
-	?>
-
 	<body>
 		<!-- HEADER -->
 		<header>
@@ -61,7 +59,14 @@ include("bd/conexion.php");
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> Saldo</a></li>
-						<li><a href="login.php"><i class="fa fa-user-o"></i> Mi Cuenta</a></li>
+						<?php 
+
+							$sqlacc = "select * from usuario where user = $user";
+							$acc = $conex->query($sqlacc);
+							$arrayacc = mysqli_fetch_array($acc);
+
+						?>
+						<li><a href="#"><i class="fa fa-user-o"></i><?php echo $arrayacc["user"] ?></a></li>
 					</ul>
 				</div>
 			</div>
@@ -77,7 +82,7 @@ include("bd/conexion.php");
 						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="#" class="logo">
-									<img src="./img/logo.png" alt="">
+									<img src="../img/logo.png" alt="">
 								</a>
 							</div>
 						</div>
@@ -868,12 +873,12 @@ include("bd/conexion.php");
 		<!-- /FOOTER -->
 
 		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/slick.min.js"></script>
+		<script src="../js/nouislider.min.js"></script>
+		<script src="../js/jquery.zoom.min.js"></script>
+		<script src="../js/main.js"></script>
 
 	</body>
 </html>

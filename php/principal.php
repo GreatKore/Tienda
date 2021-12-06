@@ -8,6 +8,7 @@
 
 <?php 
     require_once '../bd/conexion.php';
+ 
 ?>
 
 <body>
